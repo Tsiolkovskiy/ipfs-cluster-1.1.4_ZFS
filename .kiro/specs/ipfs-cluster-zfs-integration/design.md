@@ -2,7 +2,7 @@
 
 ## Overview
 
-Данный документ описывает архитектуру интеграции IPFS Cluster с ZFS для обработки триллиона пинов. Система построена на принципах горизонтального масштабирования, автоматического управления ресурсами и оптимизации производительности через нативные возможности ZFS.
+This document describes the architecture for integrating IPFS Cluster with ZFS to handle one trillion pins. The system is built on principles of horizontal scaling, automatic resource management, and performance optimization through native ZFS capabilities.
 
 ## Architecture
 
@@ -73,9 +73,9 @@ graph TB
 
 ### Core Components
 
-#### 1. ZFS Manager (ZFS-менеджер)
+#### 1. ZFS Manager
 
-Центральный компонент для управления ZFS операциями:
+Central component for managing ZFS operations:
 
 ```go
 type ZFSManager struct {
@@ -96,9 +96,9 @@ type ZFSPool struct {
 }
 ```
 
-#### 2. Sharding Service (Сервис шардинга)
+#### 2. Sharding Service
 
-Автоматическое разделение данных по ZFS datasets:
+Automatic data partitioning across ZFS datasets:
 
 ```go
 type ShardingService struct {
@@ -123,9 +123,9 @@ type ShardingStrategy interface {
 }
 ```
 
-#### 3. Replication Service (Сервис репликации)
+#### 3. Replication Service
 
-Управление репликацией через ZFS send/receive:
+Managing replication through ZFS send/receive:
 
 ```go
 type ReplicationService struct {
@@ -144,9 +144,9 @@ type ReplicationJob struct {
 }
 ```
 
-#### 4. Optimization Engine (Движок оптимизации)
+#### 4. Optimization Engine
 
-Автоматическая оптимизация ZFS параметров:
+Automatic optimization of ZFS parameters:
 
 ```go
 type OptimizationEngine struct {
@@ -318,10 +318,10 @@ type AutoRecoveryEngine struct {
 
 ### Performance Testing
 
-1. **Load Testing**: Симуляция триллиона пинов с различными паттернами доступа
-2. **Stress Testing**: Тестирование при экстремальных нагрузках (10M ops/sec)
-3. **Endurance Testing**: Длительное тестирование стабильности системы
-4. **Scalability Testing**: Тестирование добавления новых узлов
+1. **Load Testing**: Simulation of one trillion pins with various access patterns
+2. **Stress Testing**: Testing under extreme loads (10M ops/sec)
+3. **Endurance Testing**: Long-term system stability testing
+4. **Scalability Testing**: Testing addition of new nodes
 
 ### Integration Testing
 
@@ -334,15 +334,15 @@ type IntegrationTestSuite struct {
 }
 
 func (suite *IntegrationTestSuite) TestTrillionPinsWorkload() {
-    // Тест обработки триллиона пинов
+    // Test handling of one trillion pins
 }
 
 func (suite *IntegrationTestSuite) TestZFSReplication() {
-    // Тест репликации ZFS
+    // Test ZFS replication
 }
 
 func (suite *IntegrationTestSuite) TestAutoOptimization() {
-    // Тест автоматической оптимизации
+    // Test automatic optimization
 }
 ```
 
@@ -474,11 +474,11 @@ network_topology:
     protocol: "Ethernet"
 ```
 
-Эта архитектура обеспечивает:
+This architecture provides:
 
-1. **Масштабируемость**: Горизонтальное масштабирование через шардинг
-2. **Производительность**: Оптимизация ZFS параметров под нагрузку
-3. **Надежность**: Автоматическая репликация и восстановление
-4. **Эффективность**: Сжатие, дедупликация и умное размещение данных
-5. **Мониторинг**: Полная наблюдаемость системы
-6. **Безопасность**: Шифрование и контроль доступа
+1. **Scalability**: Horizontal scaling through sharding
+2. **Performance**: ZFS parameter optimization for workload
+3. **Reliability**: Automatic replication and recovery
+4. **Efficiency**: Compression, deduplication and intelligent data placement
+5. **Monitoring**: Complete system observability
+6. **Security**: Encryption and access control
